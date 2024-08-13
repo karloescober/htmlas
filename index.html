@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/photopea.png">
+    <title>Top 10 Favorite Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #141414;
+            color: #fff;
+        }
+        .movie-container {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 20px;
+            gap: 20px;
+            scroll-behavior: smooth;
+            position: relative; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .movie-container::-webkit-scrollbar {
+            display: none;
+        }
+        .movie {
+            flex: 0 0 auto;
+            width: 200px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        .movie img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .movie:hover {
+            transform: scale(1.05);
+        }
+        .movie .synopsis {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            text-align: justify;
+        }
+        .movie:hover .synopsis {
+            opacity: 1;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 46%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 3;
+            font-size: 4rem;
+            opacity: .5;
+            transition: opacity 0.3s ease, background 0.3s ease;
+        }
+        
+        .nav-arrow.left {
+            left: 0;
+        }
+        .nav-arrow.right {
+            right: 0;
+        }
+        .movie-container:hover .nav-arrow {
+            opacity: 0.5;
+        }
+        .nav-arrow:hover {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .top-nav {
+            height: 100px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-bottom: 5px #06D001 solid;
+            box-shadow: 5px 5px 10px black;
+            margin-bottom: 150px;
+        }
+
+        .logo-position{
+            float: left;
+        }
+
+        .nav-logo-container{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-logo{
+            padding-top: 10px;
+            padding-left: 10px;
+            height: auto;
+            width: 80px;
+        }
+        .top-nav ul{
+            list-style: none;
+            float: right;
+            text-align: right;
+            padding-top: 20px;
+            text-shadow: 5px 8px 30px gray;
+        } 
+
+        .top-nav li{
+            display: inline-block;
+        }
+
+        .top-nav ul li a{
+            text-decoration: none;
+            font-family: Verdana;
+            font-size: 20px;
+            margin-right: 60px;
+            color: white;
+            font-weight: bold;
+        }
+        h1 {
+            margin-left: 15px;
+            margin-bottom: -10px;
+            color: #06D001;
+        }
+        .nav-title {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fdfcfb;
+            font-size: 25px;
+            padding-top: 5px;
+            padding-left: 15px;
+        }
+        .footer img {
+            margin-right: 5px;
+            width: 40px;
+            height: auto;
+            border-radius: 100px;
+            vertical-align: middle;
+        }
+        .footer {
+            background-color: #1c1c1c;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: #06D001;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons {
+            margin-bottom: 10px;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer .social-icons a:hover {
+            color: #06D001;
+        }
+        .footer .social-icons i {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="logo-position">
+            <div class="nav-logo-container">
+                <a href=""><img src="Images/photopea.png" alt="" class="nav-logo"></a>
+                <h2 class="nav-title">
+                    ESCOBER FILM STUDIO<br>
+                    CINEMATOGRAPHY
+                </h2>
+            </div>
+        </div>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">BROWSE</a></li>
+                <li><a href="">MY LIST</a></li>
+            </ul>
+        </div>
+    <button class="nav-arrow left" onclick="scrollleft()">&#10094;</button>
+    <h1>Top 10 Movies in the Philippines Today</h1>
+    <div class="movie-container">
+        <div class="movie">
+            <a href="3idiots.html"><img src="Images/3-idiots-2009-hd-1321-poster.jpg" alt="3 Idiots">
+            <div class="synopsis">In college, Farhan and Raju form a great bond with Rancho due to his positive and refreshing outlook to life. Years later.</div></a>
+        </div>
+        <div class="movie">
+            <a href="avengers.html"><img src="Images/fTFRY6RJTpwkrYybwj4Wdf5nfgn.jpg" alt="Avengers: End Game">
+            <div class="synopsis">Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle.</div></a>
+        </div>
+        <div class="movie">
+            <a href="ben10.html"><img src="Images/7oyS2uwftLrLt79vsS3TjzYLdlx.jpg" alt="Ben10">
+            <div class="synopsis">Ben 10 is an American media franchise that revolves around a young boy named Ben Tennyson, who discovers the Omnitrix.</div></a>
+        </div>
+        <div class="movie">
+            <a href="fast7.html"><img src="Images/fast7aw.jpg" alt="Fast and Furious 7">
+                <div class="synopsis">After defeating international terrorist and the rest of the crew have separated to return to more normal lives.
+                </div></a>
+        </div>
+        <div class="movie">
+            <a href="strange.html"><img src="Images/p_drstrangeinthemultiverseofmadness_245_476cabb1.jpeg" alt="doc">
+            <div class="synopsis">Doctor Strange teams up with a mysterious teenage girl from his dreams who can travel across multiverses
+            </div></a>
+        </div>
+        <div class="movie">
+            <a href="infinity.html"><img src="Images/Avengers-Infinity-War-new-poster.jpg" alt="infinity">
+                <div class="synopsis">In Avengers: Infinity War, the Avengers and the Guardians of the Galaxy attempt to prevent Thanos from collecting the six all-powerful Infinity Stones.</div></a>
+        </div>
+        <div class="movie">
+            <a href="loki.html"><img src="Images/loki-poster.jpg" alt="loki">
+            <div class="synopsis">The second season of the American television series Loki, based on Marvel Comics featuring the character of the same name, the Time Variance Authority (TVA) to navigate the multiverse.</div></a>
+        </div>
+        <div class="movie">
+            <a href="antman.html"><img src="Images/antman.jpg" alt="ANTMAN">
+            <div class="synopsis">Ant-Man is a superhero movie about a cat burglar named Scott Lang who is given a super-suit with the ability to shrink in scale but increase in strength.</div></a>
+        </div>
+        <div class="movie">
+            <a href="deadpool.html"><img src="Images/Deadpool-Wolverine-Poster-2.jpg" alt="deadpool">
+            <div class="synopsis">Deadpool is the origin story of Wade Wilson, a former Special Forces operative turned mercenary.</div></a>
+        </div>
+        <div class="movie">
+            <a href="spiderman.html"><img src="Images/NoWayHome1-691x1024.jpg" alt="spiderman">
+            <div class="synopsis">Spider-Man is a comic-book superhero created by Marvel Comics. He is Peter Parker, a nerdy high-schooler who is bitten by a genetically-modified spider. </div></a>
+        </div>
+    </div>
+    <button class="nav-arrow right" onclick="scrollright()">&#10095;</button>
+    <div class="footer">
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook"></i><img src="Images/facebook.png" alt=""></a>
+            <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram"></i><img src="Images/instagram.png" alt=""></a>
+            <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i><img src="Images/twitter.png" alt=""></a>
+
+        </div>
+        <div class="footer-links">
+            <a href="#">Contact Us</a> | 
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>© ESCOBER FILM STUDIO CINEMATOGRAPHY, Inc. All Rights Reserved.</p>
+    </div>
+    <script>
+        const movieContainer = document.querySelector('.movie-container');
+    
+        function scrollleft() {
+            movieContainer.scrollBy({ left: -220, behavior: 'smooth' });
+        }
+    
+        function scrollright() {
+            movieContainer.scrollBy({ left: 220, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
